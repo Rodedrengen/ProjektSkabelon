@@ -102,4 +102,24 @@ public class UserMapper {
             e.printStackTrace();
         }
     }
+
+    public static void updateUser(User user) {
+        try {
+            Connection con = Connector.connection();
+            String SQL = "UPDATE users SET email = ?, password = ?, role = ? where id = ?;";
+
+            PreparedStatement ps = con.prepareStatement(SQL);
+            ps.setString(1,user.getEmail());
+            ps.setString(2,user.getPassword());
+            ps.setString(3,user.getRole());
+            ps.setInt(4, user.getId());
+
+            ps.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+    }
 }

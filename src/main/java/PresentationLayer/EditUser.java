@@ -1,23 +1,22 @@
 package PresentationLayer;
 
-import FunctionLayer.LogicFacade;
 import FunctionLayer.LoginSampleException;
-import FunctionLayer.User;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.util.Set;
 
-public class Overview extends Command{
+public class EditUser extends Command {
 
 
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {
+
+        String IDToEdit = request.getParameter( "userID" );
+
         HttpSession session = request.getSession();
-        Set<User> set = LogicFacade.getAllCustomers();
-        session.setAttribute("customermap", set);
-        session.setAttribute("size",set.size());
+
+        session.setAttribute("IDToEdit",IDToEdit);
 
         return "overview";
     }

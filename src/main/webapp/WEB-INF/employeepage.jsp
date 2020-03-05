@@ -12,7 +12,7 @@
         <title>Employee home page</title>
     </head>
     <body>
-        
+        <jsp:include page="header.jsp"></jsp:include>
 
         <h1>Hello ${sessionScope.email} </h1>
 
@@ -22,6 +22,25 @@
             <input type="submit" value="oversigt">
             <input type="hidden" name="taget" value="overview">
         </form>
+
+        <form name="newemployee" action="FrontController" method="POST">
+            <input type="hidden" name="taget" value="newemployee">
+            Email:<br>
+            <input type="text" name="email" placeholder="email@email.com">
+            <br>
+            Password:<br>
+            <input type="password" name="password1" value="sesam">
+            <br>
+            Retype Password:<br>
+            <input type="password" name="password2" value="sesam">
+            <br>
+            <input type="submit" value="Submit">
+        </form>
+
+        </table>
+
+    <p>${sessionScope.employeemail}</p>
+
 
     </body>
 </html>

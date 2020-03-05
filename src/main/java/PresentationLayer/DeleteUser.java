@@ -2,10 +2,12 @@ package PresentationLayer;
 
 import FunctionLayer.LogicFacade;
 import FunctionLayer.LoginSampleException;
+import FunctionLayer.User;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.util.Set;
 
 public class DeleteUser extends Command {
     @Override
@@ -16,7 +18,9 @@ public class DeleteUser extends Command {
 
         LogicFacade.deleteUser(ID);
 
-        session.setAttribute("customermap", LogicFacade.getAllCustomers());
+        Set<User> set = LogicFacade.getAllCustomers();
+        session.setAttribute("customermap", set);
+        session.setAttribute("size",set.size());
 
         return "overview";
     }

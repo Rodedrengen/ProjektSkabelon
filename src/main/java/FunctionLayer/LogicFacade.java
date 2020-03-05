@@ -19,11 +19,21 @@ public class LogicFacade {
         UserMapper.createUser( user );
         return user;
     }
+    public static User createEmployee( String email, String password ) throws LoginSampleException {
+        User user = new User(email, password, "employee");
+        UserMapper.createUser( user );
+        return user;
+    }
     public static Set<User> getAllCustomers(){
         return UserMapper.getAllCustomers();
     }
 
     public static void deleteUser(int id) {
         UserMapper.deleteUser(id);
+    }
+
+    public static void updateUser(User user) {
+
+        UserMapper.updateUser(user);
     }
 }
