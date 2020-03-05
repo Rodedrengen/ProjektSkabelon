@@ -16,6 +16,8 @@ public class Overview extends Command{
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {
         HttpSession session = request.getSession();
         Set<User> set = LogicFacade.getAllCustomers();
+        Set<User> newSet = LogicFacade.getAllEmployees();
+        set.addAll(newSet);
         session.setAttribute("customermap", set);
         session.setAttribute("size",set.size());
 

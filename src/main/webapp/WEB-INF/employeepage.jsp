@@ -23,21 +23,20 @@
             <input type="hidden" name="taget" value="overview">
         </form>
 
-        <form name="newemployee" action="FrontController" method="POST">
-            <input type="hidden" name="taget" value="newemployee">
-            Email:<br>
-            <input type="text" name="email" placeholder="email@email.com">
-            <br>
-            Password:<br>
-            <input type="password" name="password1" value="sesam">
-            <br>
-            Retype Password:<br>
-            <input type="password" name="password2" value="sesam">
-            <br>
-            <input type="submit" value="Submit">
-        </form>
-
-        </table>
+                <h3>Create new employee</h3>
+                <form name="newemployee" action="FrontController" method="POST">
+                    <input type="hidden" name="taget" value="newemployee">
+                    Email:<br>
+                    <input type="text" name="email" placeholder="email@email.com">
+                    <br>
+                    Password:<br>
+                    <input type="password" name="password1" value="sesam">
+                    <br>
+                    Retype Password:<br>
+                    <input type="password" name="password2" value="sesam">
+                    <br>
+                    <input type="submit" value="Submit">
+                </form>
 
     <p>${sessionScope.employeemail}</p>
 

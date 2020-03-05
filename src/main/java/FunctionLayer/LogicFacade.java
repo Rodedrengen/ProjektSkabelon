@@ -36,4 +36,8 @@ public class LogicFacade {
 
         UserMapper.updateUser(user);
     }
+
+    public static Set<User> getAllEmployees() {
+        return UserMapper.getAllEmployees();
+    }
 }

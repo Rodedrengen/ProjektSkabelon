@@ -122,4 +122,33 @@ public class UserMapper {
         }
 
     }
+
+    public static Set<User> getAllEmployees() {
+
+        Set<User> setCustomers = new HashSet<>();
+        try {
+            Connection con = Connector.connection();
+            String SQL = "SELECT * FROM users where users.role = 'employee'";
+
+            PreparedStatement ps = con.prepareStatement(SQL);
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                int ID = rs.getInt("id");
+                String email = rs.getString("email");
+                String password = rs.getString("password");
+                String role = rs.getString("role");
+                User user = new User(email, password, role);
+                user.setId(ID);
+                setCustomers.add(user);
+            }
+
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return setCustomers;
+    }
 }
